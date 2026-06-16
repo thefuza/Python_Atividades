@@ -1,1 +1,2 @@
-print("Olá Mundo!")
+print('Hello, World!')
+print('Opa, editei.')
