@@ -8,9 +8,10 @@ f - float
 > - Esquerda
 < - Direita
 ^ - Centro
+= - Força o número a aparecer antes dos zeros
 Sinal - + ou -
 Ex.: 0>-100,.1f
-Conversation flags - !r !s !a
+Conversation flags - !r !s !a 
 """
 
 variavel = 'ABC'
