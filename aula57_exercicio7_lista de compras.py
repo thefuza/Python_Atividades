@@ -13,6 +13,7 @@ erros de indices inexistentes na lista
 
 import os
 
+
 opcao = ''
 lista = []
 item = ''
@@ -69,9 +70,13 @@ while True:
                     del lista[indice]
                     print(f'{item} foi removido da lista de compras')
         
+            except IndexError:
+                os.system('cls')
+                print(f'Digite um valor entre 0 e {len(lista)}')
+            
             except ValueError:
                 os.system('cls')
-                print('Não existe este item na lista!')
+                print('Digite um valor válido (inteiro)!')
         
 
     elif opcao == 'l':
