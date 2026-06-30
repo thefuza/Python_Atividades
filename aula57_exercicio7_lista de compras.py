@@ -11,15 +11,17 @@ erros de indices inexistentes na lista
 # for lista in enumerate(lista_de_compras):
 #     print(lista)
 
+import os
+
 opcao = ''
 lista = []
 item = ''
 indice = ''
 
 while True:
-    opcao = input('======================================\n' \
-            '\tSelecione uma opção: \n' \
-            '======================================\n'\
+    opcao = input('=============================================\n' \
+            '\t  Selecione uma opção: \n' \
+            '=============================================\n'\
     '[i]nserir\n' \
     '[a]pagar\n' \
     '[l]istar\n' \
@@ -27,54 +29,71 @@ while True:
     'Digite a opção: ')
 
     if opcao == 'i':
+        os.system('cls')
         print('=============================================\n' \
         '\tInsira um item a sua lista\n' \
         '=============================================')
         item = (input('Digite o item que deseja adicionar: '))
         
         if item in lista:
+            os.system('cls')
             print('Já existe um item com esse nome')
             continue
         else:
+            os.system('cls')
             lista.append(item)
+            print(f'{item}, adicionado à lista de compras!')
             continue
-                
-                
 
-    if opcao == 'a':
+    elif opcao == 'a':
+        os.system('cls')
         print('=============================================\n' \
                 '\tRemova um item da lista\n' \
                 '=============================================')
         if not lista:
+            
             print('Tenha pelo menos um item na sua lista de compras')
         else:
             
-            for indice, nome in enumerate(lista):
-                print(indice, nome)
+            for indice, produto in enumerate(lista):
+                print(indice, produto)
 
-            indice = int(input("Digite o numero do item que desejar remover: "))
-            if 0 <= indice < len(lista):
-                del lista[indice]
-            else:
+        
+            print('=============================================\n')
+            indice_str = input("Digite o numero do item que desejar remover: ")
+
+            try:        
+                if 0 <= indice < len(lista):
+                    os.system('cls')
+                    indice = int(indice_str)
+                    del lista[indice]
+                    print(f'{item} foi removido da lista de compras')
+        
+            except ValueError:
+                os.system('cls')
                 print('Não existe este item na lista!')
+        
 
-
-    if opcao == 'l':
+    elif opcao == 'l':
+        os.system('cls')
         if not lista:
             print('Não há itens na lista de compras!')
         else:
             print(f'=============================================\n' \
-                    '\tTotal de itens da sua lista de compras \n'
+                    '   Total de itens da sua lista de compras \n'
                     '=============================================')
-            for indice, nome, in enumerate(lista):
-                print(indice, nome)
+            for indice, produto, in enumerate(lista):
+                print(indice, produto)
             continue
               
-    if opcao == 's':
+    elif opcao == 's':
+        os.system('cls')
         print('=============================================\n' \
         '\tVocê saiu da lista de compras!\n' \
         '=============================================')
               
         break
 
-
+    else:
+        os.system('cls')
+        print('Por favor, escolha umas das opções acima')
